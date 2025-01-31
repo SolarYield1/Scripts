@@ -5,12 +5,12 @@ Players = cloneref(game:GetService("Players"))
 if not game:IsLoaded() then
     local notLoaded = Instance.new("Message")
     notLoaded.Parent = COREGUI
-    notLoaded.Text = "Infinite Yield is waiting for the game to load"
+    notLoaded.Text = "Solar Yield is waiting for the game to load"
     game.Loaded:Wait()
     notLoaded:Destroy()
 end
 
-currentVersion = "6.2"
+currentVersion = "6.215"
 
 Holder = Instance.new("Frame")
 Title = Instance.new("TextLabel")
@@ -4291,7 +4291,7 @@ CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'oldconsole', DESC = 'Loads old Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
 CMDs[#CMDs + 1] = {NAME = 'olddex / odex', DESC = 'Opens Old DEX by Moon'}
-CMDs[#CMDs + 1] = {NAME = 'solspy / spy', DESC = 'Opens Simple Spy V3'}
+CMDs[#CMDs + 1] = {NAME = 'solspy / sspy', DESC = 'Opens Sol Spy V1'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio logger'}
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
 CMDs[#CMDs + 1] = {NAME = 'jobid', DESC = 'Copies the games JobId to your clipboard'}
@@ -10238,7 +10238,7 @@ addcmd('solspy',{'sspy'},function(args, speaker)
 	notify("Loading SolSpy...",'Hold on a sec')
 	-- Full credit to exx, creator of SimpleSpy
 	-- also thanks to NoobSploit for fixing
-	loadstring(game:HttpGet("https://gist.githubusercontent.com/Uylost/960b592d7fc7161c3e6de0047547d874/raw/cc0e9ca436afe2c3e253fdb357d1a61efd576098/gistfile1.txt"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SolarYield1/Scripts/refs/heads/main/spysol"))()
 end)
 
 addcmd('audiologger',{'alogger'},function(args, speaker)
