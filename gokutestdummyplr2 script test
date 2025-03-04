@@ -55,7 +55,7 @@ character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.n
 end)
 
 while updating do
-character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
+character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-4.5) * CFrame.Angles(0,math.rad(360),0)
 for i,v in pairs(character:GetDescendants()) do
 if v:IsA("BodyVelocity") then
 v:Destroy()
@@ -105,7 +105,7 @@ character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.n
 end)
 
 while updating do
-character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-2.5) * CFrame.Angles(0,math.rad(360),0)
+character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-2.85) * CFrame.Angles(0,math.rad(360),0)
 wait()
 end
 
