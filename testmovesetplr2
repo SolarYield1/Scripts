@@ -8,7 +8,7 @@ if v:IsA("BasePart") or v:IsA("MeshPart") then
 v.CanCollide = false
 end
 end
-print("v2")
+print("v3")
 local Velocity = Instance.new("BodyVelocity",character.HumanoidRootPart)
 Velocity.MaxForce = Vector3.new(1,1,1)*1000000
 Velocity.Name = "Float72"
@@ -120,6 +120,3 @@ end
 THumanoid.AnimationPlayed:Connect(onAnimationPlayed)
 --[[END OF SAYIAN BARRAGE]]
 end
-
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SolarYield1/Scripts/refs/heads/main/gokutestdummyplr2%20script%20test"))()
