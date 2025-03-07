@@ -5,6 +5,7 @@ local Plr2Name = "dgreheth1"--FIRST PLAYER USERNAME HERE
 local player = game.Players.LocalPlayer
 
 local character = player.Character or player.CharacterAdded:Wait()
+character.Humanoid.AutoRotate = false
 for i,v in character:GetDescendants() do
 if v:IsA("BasePart") or v:IsA("MeshPart") then
 v.CanCollide = false
@@ -74,7 +75,7 @@ character:FindFirstChild("HumanoidRootPart").CFrame = character:FindFirstChild("
 end)
 
 while updating do
-character:FindFirstChild("HumanoidRootPart").CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) --[[* CFrame.Angles(0,math.rad(360),0)]]
+character:FindFirstChild("HumanoidRootPart").CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
 for i,v in pairs(character:GetDescendants()) do
 if v:IsA("BodyVelocity") then
 v:Destroy()
