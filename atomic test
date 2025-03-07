@@ -71,7 +71,7 @@ local args = {
 
 game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
 local updating = true
-delay(2.45,function()
+delay(1.75,function()
 updating = false
 character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
 end)
