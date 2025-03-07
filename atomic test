@@ -68,13 +68,13 @@ local args = {
 
 game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
 local updating = true
-delay(1.75,function()
+delay(1.69,function()
 updating = false
 character:FindFirstChild("HumanoidRootPart").CFrame = character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,1000000,0)
 end)
 
 while updating do
-character:FindFirstChild("HumanoidRootPart").CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
+character:FindFirstChild("HumanoidRootPart").CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) --[[* CFrame.Angles(0,math.rad(360),0)]]
 for i,v in pairs(character:GetDescendants()) do
 if v:IsA("BodyVelocity") then
 v:Destroy()
