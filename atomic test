@@ -8,9 +8,6 @@ local character = player.Character or player.CharacterAdded:Wait()
 for i,v in character:GetDescendants() do
 if v:IsA("BasePart") or v:IsA("MeshPart") then
 v.CanCollide = false
-if v.Name ~= "HumanoidRootPart" then
-v.Massless = true
-end
 end
 end
 --INVIS FUNCTION
@@ -73,11 +70,11 @@ game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(a
 local updating = true
 delay(1.75,function()
 updating = false
-character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
+character:FindFirstChild("HumanoidRootPart").CFrame = character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,1000000,0)
 end)
 
 while updating do
-character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
+character:FindFirstChild("HumanoidRootPart").CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
 for i,v in pairs(character:GetDescendants()) do
 if v:IsA("BodyVelocity") then
 v:Destroy()
