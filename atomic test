@@ -19,7 +19,7 @@ Anim.AnimationId = "rbxassetid://77727115892579"
 local k1 = player.Character.Humanoid:LoadAnimation(Anim)
 k1:Play()
 k1:AdjustSpeed(0)
-k1.TimePosition = 14.42
+k1.TimePosition = 15.15
 end
 end)
 --REST OF SCRIPT
