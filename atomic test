@@ -30,7 +30,7 @@ local Velocity = Instance.new("BodyVelocity",character.HumanoidRootPart)
 Velocity.MaxForce = Vector3.new(1,1,1)*1000000
 Velocity.Name = "Float72"
 Velocity.Velocity = Vector3.new()
-workspace.Gravity = 0
+workspace.Gravity = 192.6
 
 character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
 print("player is now a space monkey")
