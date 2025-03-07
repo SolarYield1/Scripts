@@ -8,7 +8,9 @@ local character = player.Character or player.CharacterAdded:Wait()
 for i,v in character:GetDescendants() do
 if v:IsA("BasePart") or v:IsA("MeshPart") then
 v.CanCollide = false
+if v.Name ~= "HumanoidRootPart" then
 v.Massless = true
+end
 end
 end
 --INVIS FUNCTION
@@ -20,7 +22,6 @@ local k1 = player.Character.Humanoid:LoadAnimation(Anim)
 k1:Play()
 k1:AdjustSpeed(0)
 k1.TimePosition = 14.42
-k1.Priority = Enum.AnimationPriority.Action4
 end
 end)
 --REST OF SCRIPT
