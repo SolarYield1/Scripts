@@ -61,7 +61,6 @@ if Target then
 
 			local Humanoid = p.Character:WaitForChild("Humanoid")
 
-			task.wait(1.05)
 			local args = {
 				[1] = {
 					["Tool"] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Quick Slice"),
@@ -77,8 +76,9 @@ if Target then
 			local TS = game:GetService("TweenService")
 			local tween = TS:Create(character.HumanoidRootPart,TweenInfo.new(1.74,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),{CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-75) * CFrame.Angles(0,math.rad(360),0)})
 			tween:Play()
+			print("working tween")
 			tween.Completed:Connect(function()
-				character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
+			character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
 			end)
 			
 		end
