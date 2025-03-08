@@ -5,22 +5,25 @@ local Plr2Name = "dgreheth1"--FIRST PLAYER USERNAME HERE
 local player = game.Players.LocalPlayer
 
 local character = player.Character or player.CharacterAdded:Wait()
-character.Humanoid.AutoRotate = false
-for i,v in character:GetDescendants() do
-if v:IsA("BasePart") or v:IsA("MeshPart") then
-v.CanCollide = false
-end
-end
+
 --INVIS FUNCTION
 delay(0,function()
-while wait() do
-local Anim = Instance.new("Animation")
-Anim.AnimationId = "rbxassetid://77727115892579"
-local k1 = player.Character.Humanoid:LoadAnimation(Anim)
-k1:Play()
-k1:AdjustSpeed(0)
-k1.TimePosition = 15.15
-end
+	while wait() do
+		local Anim = Instance.new("Animation")
+		Anim.AnimationId = "rbxassetid://77727115892579"
+		local k1 = player.Character.Humanoid:LoadAnimation(Anim)
+		k1:Play()
+		k1:AdjustSpeed(0)
+		k1.TimePosition = 14.42
+		for i,v in character:GetDescendants() do
+			if v:IsA("BasePart") or v:IsA("MeshPart") then
+				if v.CanCollide == true then
+				v.CanCollide = false
+				v.Massless = true
+				end 
+			end
+		end
+	end
 end)
 --REST OF SCRIPT
 print("invis is ready")
@@ -34,59 +37,52 @@ character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.n
 print("player is now a space monkey")
 
 for i,v in pairs(workspace:GetDescendants()) do
-if v:IsA("Model") and v.Name == Plr2Name then
-Target = v
-end
+	if v:IsA("Model") and v.Name == Plr2Name then
+		Target = v
+	end
 end
 
 if Target then
-print("Target Found")
-local THumanoid = Target:FindFirstChildWhichIsA("Humanoid")
+	print("Target Found")
+	local THumanoid = Target:FindFirstChildWhichIsA("Humanoid")
 
---[[START OF XENO SLASHES]]
-local animationId = 15436668469
-
-
-local humanoid = character:WaitForChild("Humanoid")
+	--[[START OF XENO SLASHES]]
+	local animationId = 15436668469
 
 
-local function onAnimationPlayed(animationTrack)
-
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
-
-local p = game.Players.LocalPlayer
-
-local Humanoid = p.Character:WaitForChild("Humanoid")
+	local humanoid = character:WaitForChild("Humanoid")
 
 
-local args = {
-    [1] = {
-        ["Tool"] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Quick Slice"),
-        ["Goal"] = "Console Move",
-        ["ToolName"] = "Quick Slice"
-    }
-}
+	local function onAnimationPlayed(animationTrack)
 
-game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
-local updating = true
-delay(1.69,function()
-updating = false
-character:FindFirstChild("HumanoidRootPart").CFrame = character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,1000000,0)
-end)
+		if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
 
-while updating do
-character:FindFirstChild("HumanoidRootPart").CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
-for i,v in pairs(character:GetDescendants()) do
-if v:IsA("BodyVelocity") then
-v:Destroy()
-elseif v:IsA("BodyGyro") then
-v:Destroy()
-end
-end
-wait()
-end
-end
-end
-THumanoid.AnimationPlayed:Connect(onAnimationPlayed)
---[[END OF XENO SLASHES]]
+			local p = game.Players.LocalPlayer
+
+			local Humanoid = p.Character:WaitForChild("Humanoid")
+
+			task.wait(1.05)
+			local args = {
+				[1] = {
+					["Tool"] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Quick Slice"),
+					["Goal"] = "Console Move",
+					["ToolName"] = "Quick Slice"
+				}
+			}
+
+			game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
+
+			character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
+			
+			local TS = game:GetService("TweenService")
+			local tween = TS:Create(character.HumanoidRootPart,TweenInfo.new(1.74,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),{CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-75) * CFrame.Angles(0,math.rad(360),0)})
+			tween:Play()
+			tween.Completed:Connect(function()
+				character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
+			end)
+			
+		end
+	end
+	THumanoid.AnimationPlayed:Connect(onAnimationPlayed)
+	--[[END OF XENO SLASHES]]
 end
