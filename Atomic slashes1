@@ -72,10 +72,10 @@ if Target then
 
 			game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
 
-			character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
+			character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(180),0)
 			
 			local TS = game:GetService("TweenService")
-			local tween = TS:Create(character.HumanoidRootPart,TweenInfo.new(1.74,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),{CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-75) * CFrame.Angles(0,math.rad(180),0)})
+			local tween = TS:Create(character.HumanoidRootPart,TweenInfo.new(1.74,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),{CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-35) * CFrame.Angles(0,math.rad(180),0)})
 			tween:Play()
 			print("working tween")
 			tween.Completed:Connect(function()
