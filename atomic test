@@ -9,12 +9,12 @@ local character = player.Character or player.CharacterAdded:Wait()
 --INVIS FUNCTION
 delay(0,function()
 	while wait() do
-		local Anim = Instance.new("Animation")
+		--[[local Anim = Instance.new("Animation")
 		Anim.AnimationId = "rbxassetid://77727115892579"
 		local k1 = player.Character.Humanoid:LoadAnimation(Anim)
 		k1:Play()
 		k1:AdjustSpeed(0)
-		k1.TimePosition = 14.42
+		k1.TimePosition = 14.42]]
 		for i,v in character:GetDescendants() do
 			if v:IsA("BasePart") or v:IsA("MeshPart") then
 				if v.CanCollide == true then
