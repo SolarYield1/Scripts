@@ -48,7 +48,7 @@ if Target then
 	local THumanoid = Target:FindFirstChildWhichIsA("Humanoid")
 
 	--[[START OF XENO SLASHES]]
-	local animationId = 94020267622363
+	local animationId = 15124762088
 
 
 	local humanoid = character:WaitForChild("Humanoid")
