@@ -1,0 +1,88 @@
+--[[ATOMIC VERISON]]
+
+local Target
+local Plr2Name = "dgreheth1"--FIRST PLAYER USERNAME HERE
+local player = game.Players.LocalPlayer
+
+local character = player.Character or player.CharacterAdded:Wait()
+
+--INVIS FUNCTION
+delay(0,function()
+	while wait() do
+		--[[local Anim = Instance.new("Animation")
+		Anim.AnimationId = "rbxassetid://77727115892579"
+		local k1 = player.Character.Humanoid:LoadAnimation(Anim)
+		k1:Play()
+		k1:AdjustSpeed(0)
+		k1.TimePosition = 14.42]]
+		for i,v in character:GetDescendants() do
+			if v:IsA("BasePart") or v:IsA("MeshPart") then
+				if v.CanCollide == true then
+				v.CanCollide = false
+				v.Massless = true
+				end 
+			end
+		end
+	end
+end)
+--REST OF SCRIPT
+print("invis is ready")
+local Velocity = Instance.new("BodyVelocity",character.HumanoidRootPart)
+Velocity.MaxForce = Vector3.new(1,1,1)*1000000
+Velocity.Name = "Float72"
+Velocity.Velocity = Vector3.new()
+workspace.Gravity = 192.6
+
+character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
+print("player is now a space monkey")
+
+for i,v in pairs(workspace:GetDescendants()) do
+	if v:IsA("Model") and v.Name == Plr2Name then
+		Target = v
+	end
+end
+
+if Target then
+	print("Target Found")
+	local THumanoid = Target:FindFirstChildWhichIsA("Humanoid")
+
+	--[[START OF XENO SLASHES]]
+	local animationId = 94020267622363
+
+
+	local humanoid = character:WaitForChild("Humanoid")
+
+
+	local function onAnimationPlayed(animationTrack)
+
+		if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+
+			local p = game.Players.LocalPlayer
+
+			local Humanoid = p.Character:WaitForChild("Humanoid")
+
+			local args = {
+				[1] = {
+					["Tool"] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Quick Slice"),
+					["Goal"] = "Console Move",
+					["ToolName"] = "Quick Slice"
+				}
+			}
+
+			game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
+
+			character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-5) * CFrame.Angles(0,math.rad(360),0)
+			
+			local TS = game:GetService("TweenService")
+			local tween = TS:Create(character.HumanoidRootPart,TweenInfo.new(1.74,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),{CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,0,-75) * CFrame.Angles(0,math.rad(180),0)})
+			tween:Play()
+			print("working tween")
+			tween.Completed:Connect(function()
+			character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
+			end)
+			
+		end
+	end
+	THumanoid.AnimationPlayed:Connect(onAnimationPlayed)
+	--[[END OF XENO SLASHES]]
+end
