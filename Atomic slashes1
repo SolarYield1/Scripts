@@ -91,4 +91,44 @@ if Target then
 	end
 	THumanoid.AnimationPlayed:Connect(onAnimationPlayed)
 	--[[END OF XENO SLASHES]]
+
+--[[START OF XENO SLASHES2]]
+	local animationId = 72451715583225
+
+
+	local humanoid = character:WaitForChild("Humanoid")
+
+
+	local function onAnimationPlayed(animationTrack)
+
+		if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+
+			local p = game.Players.LocalPlayer
+
+			local Humanoid = p.Character:WaitForChild("Humanoid")
+
+			local args = {
+				[1] = {
+					["Tool"] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Quick Slice"),
+					["Goal"] = "Console Move",
+					["ToolName"] = "Quick Slice"
+				}
+			}
+
+			game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args))
+
+			character.HumanoidRootPart.CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,1.5,-5) * CFrame.Angles(0,math.rad(180),0)
+			
+			local TS = game:GetService("TweenService")
+			local tween = TS:Create(character.HumanoidRootPart,TweenInfo.new(1.751,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),{CFrame = Target:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,1.5,-55) * CFrame.Angles(0,math.rad(180),0)})
+			tween:Play()
+			print("working tween")
+			tween.Completed:Connect(function()
+			character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame * CFrame.new(0,1000000,0)
+			end)
+			
+		end
+	end
+	THumanoid.AnimationPlayed:Connect(onAnimationPlayed)
+	--[[END OF XENO SLASHES2]]
 end
